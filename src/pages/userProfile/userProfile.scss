@@ -1,0 +1,49 @@
+.profile-page{
+  background-color: #E3E1E2;
+  color:black;
+.userProfile-style{
+    display:flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    padding-top:1.5rem ;
+    padding-left: 20%;
+    padding-right: 20%;
+    .userAvatar{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;// raduis circle
+        cursor: pointer;
+      }
+      .userProfilePic{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .nameEmailCard{
+        background-color:#FEFCFA;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(224, 18, 18, 0.2);
+        transition: 0.3s;
+        padding: 2px 16px;
+        padding-bottom: 1rem;
+
+input[type="email"],
+input[type="password"],
+button,
+textarea {
+font-family: 'Nunito', sans-serif;
+font-size: 22px;
+padding: 0.25rem;
+border-radius: 0.5rem;
+}
+        }
+        /* On mouse-over, add a deeper shadow */
+      .nameEmailCard:hover {
+       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+      }
+
+    }
+

@@ -1,0 +1,69 @@
+.health{
+    flex: 1;
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+
+    .health-title{
+        display: flex;
+        gap:0.5rem;
+    }
+    .millage-speed{
+        display: flex;
+        gap:0.5rem;
+        flex-direction: row;
+        margin: 10px 0px;
+        //: space-evenly;
+
+        .millage{
+            border: solid black;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            .Mileage-value{
+                font-size: 3.5rem;
+                color:blue;
+            }
+        }
+        .speed{
+            border: solid black;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            
+        }
+    }
+    .temp-current{
+        display: flex;
+        flex-direction: column;
+        //align-items: center;
+        margin: 10px 0px;
+        
+        .temp{
+            display: flex;
+            border: solid black;
+            justify-content: space-evenly;
+        .temp-element{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+        }
+            
+        }
+        .current{
+            display: flex;
+            flex-direction: column;
+            border: solid black;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0px;
+        }
+    }
+    
+}

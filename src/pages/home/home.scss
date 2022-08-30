@@ -1,0 +1,26 @@
+
+    .title{
+        padding:15px;
+    }
+    .options{
+        display:flex;
+        flex-flow: row wrap;
+        background-color: rgb(242, 239, 239);
+        
+    }
+    .info-Display{
+        display:flex;
+        flex-direction: row;
+        
+        .info-left{
+            display: flex;
+            flex:1;
+        }
+        .info-right{
+            display: flex;
+            flex:1.3;
+           
+        }
+       
+    }
+
