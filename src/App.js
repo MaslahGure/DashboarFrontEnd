@@ -29,8 +29,8 @@ function App() {
         <Routes>
           <Route path ="/" element ={<Layout/>}>
             {/*Public routes*/}
-            <Route path ="login" element ={<Login/>}/>
-            <Route path ="register" element ={<Register/>}/>
+            <Route path ="/login" element ={<Login/>}/>
+            <Route path ="/register" element ={<Register/>}/>
               
               {/*Protected routes*/}
               <Route element={<PersistLogin/>}>
@@ -41,7 +41,7 @@ function App() {
               </Route>
 
               {/*Catch all routes*/}
-              <Route path="*" element ={<Missing/>}/>
+              <Route path="/*" element ={<Missing/>}/>
 
           </Route>
         </Routes>
