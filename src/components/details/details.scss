@@ -1,0 +1,77 @@
+
+.detail-elements-bars{
+    flex:1;
+   
+
+    .health-title{
+        display: flex;
+        padding: 0.5rem;
+    }
+    .millage-speed{
+        display: flex;
+        gap:0.5rem;
+        flex-direction: row;
+        margin: 10px 0px;
+        //: space-evenly;
+
+        .millage{
+            box-shadow: 0 4px 8px 0 rgba(224, 18, 18, 0.2);
+            transition: 0.3s;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            .Mileage-value{
+                font-size: 3.5rem;
+                color:blue;
+            }
+        }
+        .speed{
+          
+            box-shadow: 0 4px 8px 0 rgba(224, 18, 18, 0.2);
+            transition: 0.3s;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            
+        }
+    }
+    .temp-current{
+        display: flex;
+        flex-direction: column;
+        //align-items: center;
+        margin: 10px 0px;
+        
+        .temp{
+            display: flex;
+            box-shadow: 0 4px 8px 0 rgba(218, 27, 27, 0.2);
+            transition: 0.3s;
+            justify-content: space-evenly;
+        .temp-element{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+        }
+            
+        }
+        .current{
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 8px 0 rgba(224, 18, 18, 0.2);
+            transition: 0.3s;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0px;
+        }
+    }
+    
+    
+}
+.amr{
+    flex:1.3;
+}

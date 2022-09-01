@@ -1,5 +1,4 @@
 import React from 'react'
-import "./health.scss"
 import ProgressBar from '../circularBar/ProgressBar'
 import { faBoxesPacking} from "@fortawesome/free-solid-svg-icons";
 import  {FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +6,7 @@ import  {FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const EachConvHealth = ({mileage,speed,current,motor_temp,inverter_temp,device}) => {
 
     return (
-    <section className='health'>
+    <section className='detail-elements-bars'>
       <div className="health-title">
           <FontAwesomeIcon icon={faBoxesPacking}/>
           <h5>General/whitey_conv{device}</h5>

@@ -1,6 +1,4 @@
-import React from 'react'
 import LineChart from './LineChart';
-
 
 
 function TimeSeriesGraph ({posts, device}) {
@@ -11,8 +9,14 @@ function TimeSeriesGraph ({posts, device}) {
     labels:reversePosts.map((post) => post.tstamp.slice(15,19)), // x-axis
       datasets:[
           {
-              label:"Motor temp a",
-              data:reversePosts.map((post) => post.motor_thermal_a), // y-axis
+              label:device ===1
+              ?"Motor temp a"
+              :"Motor temp b",
+              data:reversePosts.map((post) => 
+             device ===1
+               ? post.motor_thermal_a
+               :post.motor_thermal_b
+              ), // y-axis
               backgroundColor:["rgba(75,192,11)"]
             }
       ],
@@ -22,8 +26,15 @@ function TimeSeriesGraph ({posts, device}) {
     labels:reversePosts.map((post) => post.tstamp.slice(15,19)), // x-axis
     datasets:[
         {
-            label:"drive_thermal_a",
-            data:reversePosts.map((post) => post.drive_thermal_a), // y-axis
+            label:device ===1
+            ?"drive_thermal_a"
+            :"drive_thermal_b"
+            ,
+            data:reversePosts.map((post) => 
+            device ===1 
+            ?post.drive_thermal_a
+            :post.drive_thermal_b
+            ), // y-axis
             backgroundColor:["rgba(75,192,11)"]
           }
     ]
@@ -32,8 +43,15 @@ function TimeSeriesGraph ({posts, device}) {
     labels:reversePosts.map((post) => post.tstamp.slice(15,19)), // x-axis
     datasets:[
         {
-            label:"Motor current_a",
-            data:reversePosts.map((post) => post.current_a), // y-axis
+            label:device ===1
+            ?"Motor current_a"
+            :"Motor current_b"
+            ,
+            data:reversePosts.map((post) => 
+            device ===1
+            ?post.current_a
+            :post.current_b
+            ), // y-axis
             backgroundColor:["rgba(75,192,11)"],
             
           }

@@ -1,8 +1,8 @@
-import React from 'react'
 import { useState } from 'react'
 import "./selection.scss"
 
 export default function Selection({selectedBox}) {
+  //selected controls the class of the buttons
   const [selected,setSelected] =useState(0);
   
   return (

@@ -1,3 +1,8 @@
+.home-page{
+    
+    margin-top:1rem;
+    padding:1rem;
+}
 
     .title{
         padding:15px;
@@ -8,19 +13,11 @@
         background-color: rgb(242, 239, 239);
         
     }
-    .info-Display{
-        display:flex;
+    .page-display{
+        display: flex;
         flex-direction: row;
+        justify-content: space-evenly;
+        gap:1rem;
         
-        .info-left{
-            display: flex;
-            flex:1;
-        }
-        .info-right{
-            display: flex;
-            flex:1.3;
-           
-        }
-       
-    }
+}
 

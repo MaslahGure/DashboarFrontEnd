@@ -19,7 +19,9 @@
   main{
       display: flex;
       flex-direction: column;
-      margin: 40px 0rem;
+      margin: 50px 0rem;
+     
+      
   }
 
   footer {
