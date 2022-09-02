@@ -45,9 +45,8 @@ export const Home = () => {
           signal: controller.signal
       });
         isMounted && setPosts(response.data);
-        //console.log(response.data);
       } catch (error) {
-        //console.log(error);
+       
       }
     }
 

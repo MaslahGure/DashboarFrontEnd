@@ -17,6 +17,7 @@ import Layout from "./components/Layout";
 import Missing from "./pages/missing/Missing";
 import PersistLogin from "./components/PersistLogin";
 import UserProfile from "./pages/userProfile/UserProfile";
+import About from "./pages/about/About";
 
 //App
 
@@ -37,6 +38,7 @@ function App() {
                 <Route element ={<RequireAuth/>}>
                   <Route path ="/" element={<Home/>}/>
                   <Route path ="/profile" element ={<UserProfile/>}/>
+                  <Route path ="/about" element ={<About/>}/>
                 </Route>
               </Route>
 
