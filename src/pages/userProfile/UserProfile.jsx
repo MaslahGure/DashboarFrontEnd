@@ -38,7 +38,6 @@ const UserProfile = () => {
     const handleSubmit = async (e)=>{
         e.preventDefault();
         const email =auth?.email;
-        console.log("submited")
         const v2 =PWD_REGEX.test(newPassword);
         
         if(!v2){

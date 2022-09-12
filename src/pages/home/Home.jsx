@@ -31,6 +31,7 @@ export const Home = () => {
     motor_thermal_b:0,
     drive_thermal_a:0,
     drive_thermal_b:0,
+    tstamp:0,
 
   }]);
   
@@ -44,6 +45,7 @@ export const Home = () => {
         const response = await axiosPrivate.get('/convdata', {
           signal: controller.signal
       });
+      //console.log(response.data)
         isMounted && setPosts(response.data);
       } catch (error) {
        

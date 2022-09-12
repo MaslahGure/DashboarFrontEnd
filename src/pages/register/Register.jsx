@@ -6,6 +6,8 @@ import {Link, useNavigate} from 'react-router-dom';
 
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Footer from '../../components/footer/Footer';
+import CairoLabLog from '../../img/CairoLabLogo.png'
 
 
 
@@ -119,6 +121,7 @@ function Register() {
   return (
     <div className='register-style'>
     <section className='form-style'>
+    <img src={CairoLabLog} alt="" />
       <p ref={errRef} className={errMsg ? "errmsg" : "hide"}>{errMsg}</p>
       <h1>Register</h1>
       <form onSubmit={handleSubmit} >
@@ -231,6 +234,7 @@ function Register() {
       
       
     </section>
+    <Footer/>
     </div>
   )
 }

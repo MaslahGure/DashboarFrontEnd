@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.0db31235.css",
-    "main.js": "/static/js/main.8cb7abc7.js",
+    "main.css": "/static/css/main.4bcbaa1d.css",
+    "main.js": "/static/js/main.48d56b30.js",
+    "static/media/CairoLabLogo.png": "/static/media/CairoLabLogo.fae5f9c1e19dbe19267e.png",
     "static/media/convOil.svg": "/static/media/convOil.7a870742dfc97b1bf1751611d673f0cb.svg",
     "static/media/CarioLog.png": "/static/media/CarioLog.006bd29ea9ca7ed68dc8.png",
     "static/media/convBeltImage.svg": "/static/media/convBeltImage.c909f51426ab3ae6138c892f440df63d.svg",
     "index.html": "/index.html",
-    "main.0db31235.css.map": "/static/css/main.0db31235.css.map",
-    "main.8cb7abc7.js.map": "/static/js/main.8cb7abc7.js.map"
+    "main.4bcbaa1d.css.map": "/static/css/main.4bcbaa1d.css.map",
+    "main.48d56b30.js.map": "/static/js/main.48d56b30.js.map"
   },
   "entrypoints": [
-    "static/css/main.0db31235.css",
-    "static/js/main.8cb7abc7.js"
+    "static/css/main.4bcbaa1d.css",
+    "static/js/main.48d56b30.js"
   ]
 }

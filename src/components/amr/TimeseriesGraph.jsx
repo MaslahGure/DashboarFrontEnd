@@ -2,56 +2,79 @@ import LineChart from './LineChart';
 
 
 function TimeSeriesGraph ({posts, device}) {
-  
-   // const posts = posts;
   const reversePosts = [...posts].reverse(); // data reversed
+  //timeseries:
+
+  const currentTime = new Date();
+  const dayAgo =currentTime.setHours(currentTime.getHours()-5)
+  const dayAgoData =reversePosts.filter(post=>new Date(post.tstamp).getTime()>dayAgo)
+  
+  
+  let time =[],
+  tempMotorA =[],tempMotorB =[],
+  driveThermalA =[],driveThermalB =[],
+  currentA =[],currentB =[];
+  for(let i=0; i<dayAgoData.length;i++){
+    time.push(new Date(dayAgoData[i]?.tstamp).getHours() + ':'+new Date(dayAgoData[i]?.tstamp).getMinutes());
+    tempMotorA.push(dayAgoData[i]?.motor_thermal_a)
+    tempMotorB.push(dayAgoData[i]?.motor_thermal_b)
+    driveThermalA.push(dayAgoData[i]?.motor_thermal_a)
+    driveThermalB.push(dayAgoData[i]?.motor_thermal_b)
+    currentA.push(dayAgoData[i]?.current_a)
+    currentB.push(dayAgoData[i]?.current_b)
+ 
+  }
+    console.log(time[1],currentA[0],currentB[1],tempMotorA[1],tempMotorB[1])
+   // const posts = posts;
   const dataLine1={
-    labels:reversePosts.map((post) => post.tstamp.slice(15,19)), // x-axis
+    labels:time, // x-axis
       datasets:[
           {
               label:device ===1
               ?"Motor temp a"
               :"Motor temp b",
-              data:reversePosts.map((post) => 
-             device ===1
-               ? post.motor_thermal_a
-               :post.motor_thermal_b
-              ), // y-axis
+              data:
+                device ===1
+                ?tempMotorA
+                :tempMotorB
+              
+             
+              , // y-axis
               backgroundColor:["rgba(75,192,11)"]
             }
       ],
       
   };
   const dataLine2={
-    labels:reversePosts.map((post) => post.tstamp.slice(15,19)), // x-axis
+    labels:time, // x-axis
     datasets:[
         {
             label:device ===1
             ?"drive_thermal_a"
             :"drive_thermal_b"
             ,
-            data:reversePosts.map((post) => 
+            data:
             device ===1 
-            ?post.drive_thermal_a
-            :post.drive_thermal_b
-            ), // y-axis
+            ?driveThermalA
+            :driveThermalB
+            , // y-axis
             backgroundColor:["rgba(75,192,11)"]
           }
     ]
 };
   const dataLine3={
-    labels:reversePosts.map((post) => post.tstamp.slice(15,19)), // x-axis
+    labels:time, // x-axis
     datasets:[
         {
             label:device ===1
             ?"Motor current_a"
             :"Motor current_b"
             ,
-            data:reversePosts.map((post) => 
+            data: 
             device ===1
-            ?post.current_a
-            :post.current_b
-            ), // y-axis
+            ?currentA
+            :currentB
+            , // y-axis
             backgroundColor:["rgba(75,192,11)"],
             
           }

@@ -18,6 +18,9 @@ import Missing from "./pages/missing/Missing";
 import PersistLogin from "./components/PersistLogin";
 import UserProfile from "./pages/userProfile/UserProfile";
 import About from "./pages/about/About";
+import Admin from "./pages/admin/Admin";
+import ManageUser from "./pages/admin/ManageUser";
+
 
 //App
 
@@ -38,6 +41,8 @@ function App() {
                 <Route element ={<RequireAuth/>}>
                   <Route path ="/" element={<Home/>}/>
                   <Route path ="/profile" element ={<UserProfile/>}/>
+                  <Route path ="/users" element ={<Admin/>}/>
+                  <Route path ="/users/manage" element ={<ManageUser/>}/>
                   <Route path ="/about" element ={<About/>}/>
                 </Route>
               </Route>

@@ -2,9 +2,11 @@ import React from 'react';
 import {useRef, useState, useEffect} from "react";
 import "./login.scss"
 import {Link, useNavigate, useLocation} from 'react-router-dom';
+import CairoLabLog from '../../img/CairoLabLogo.png'
 
 import axios from "../../api/axios";
 import useAuth from '../../hooks/useAuth';
+import Footer from '../../components/footer/Footer';
 
 const LOGIN_URL ='/auth';
 
@@ -78,6 +80,7 @@ function Login() {
   return (
     <div className="login-style">
     <section className='form-style'>
+      <img src={CairoLabLog} alt="" />
       <p ref={errRef} className={errMsg ? "errmsg" : "hide"}>{errMsg}</p>
       <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
@@ -120,6 +123,7 @@ function Login() {
       </p>
 
     </section>
+    <Footer/>
     </div>
   )
 }

@@ -14,7 +14,9 @@ const useRefreshToken = () => {
                 username:response.data.username,
                 email:response.data.email,
                 userId:response.data.userId,
-                photoUrl: response.data.photoUrl
+                photoUrl: response.data.photoUrl,
+                database: response.data.database,
+                tablename: response.data.tablename,
                 }
 
         });

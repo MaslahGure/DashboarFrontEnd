@@ -75,6 +75,12 @@ function Navbar() {
                                     <FontAwesomeIcon icon = {faArrowCircleRight}/>
                                 </Link>
                             </li>
+                            <li>
+                                <Link to = "/users" >
+                                    users
+                                    <FontAwesomeIcon icon = {faArrowCircleRight}/>
+                                </Link>
+                            </li>
                         </ul>}
                 </div>
                 
