@@ -18,7 +18,7 @@ const EachConvHealth = ({mileage,speed,current,motor_temp,inverter_temp,device})
           </div>
           <div className="speed">
             <p className='progressBar-description '>speed</p>
-            <ProgressBar percentage={speed}  unit ={"m/s"} end ={1500}  mode= {"normal"}/>
+            <ProgressBar percentage={speed}  unit ={"rpm"} end ={1500}  mode= {"normal"}/>
           </div>
       </div>
       <div className="temp-current">

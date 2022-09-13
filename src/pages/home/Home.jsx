@@ -57,7 +57,7 @@ export const Home = () => {
      const interval = setInterval(() => {
         setRequests (!requests);
 
-      }, 10000);
+      }, 1000000);
 
           
       return () => {
