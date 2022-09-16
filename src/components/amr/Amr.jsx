@@ -4,7 +4,7 @@ import "./amr.scss"
 import { useState } from 'react'
 import { addDays } from 'date-fns'
 
-export default function Amr({device, posts}) {
+export default function Amr({device, posts,requestsIntervalSetter}) {
   const [timePeriod, setTimePeriod]=useState("Last minute");
   const [range, setRange] = useState([
     {
@@ -14,7 +14,15 @@ export default function Amr({device, posts}) {
     }
   ]);
   const rangeSetter = (x)=>setRange(x)
-  const periodSetter =(x)=>setTimePeriod(x);
+  const periodSetter =(x)=> {
+    setTimePeriod(x);
+    if(x==="Last minute"){
+      requestsIntervalSetter(1000) // if last minute request data every second
+
+    }else{
+      requestsIntervalSetter(100000)// else every minute
+    }
+  }
   return (
     <section className='amr' >
       <AmrSettings periodSetter={periodSetter} timePeriod={timePeriod} range={range} rangeSetter ={rangeSetter}/>

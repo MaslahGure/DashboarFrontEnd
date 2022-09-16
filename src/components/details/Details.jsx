@@ -3,7 +3,7 @@ import Amr from "../amr/Amr";
 import "./details.scss"
 
 
-export default function Details({posts,device}) {
+export default function Details({posts,device,requestsIntervalSetter}) {
   let post = posts[0];
   
   return (
@@ -29,8 +29,8 @@ export default function Details({posts,device}) {
       }
       {
         device === 1
-        ? <Amr device={1} posts ={posts}/>
-        :<Amr device={2} posts ={posts}/>
+        ? <Amr device={1} posts ={posts} requestsIntervalSetter={requestsIntervalSetter}/>
+        :<Amr device={2} posts ={posts} requestsIntervalSetter={requestsIntervalSetter}/>
       }
       
     </section>

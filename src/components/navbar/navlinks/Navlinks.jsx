@@ -1,5 +1,3 @@
-import React from 'react'
-import "./navlinks.scss"
 import { useNavigate, Link } from "react-router-dom";
 import useLogout from "../../../hooks/useLogout";
 
@@ -41,10 +39,10 @@ export default function Navlinks({closedMenu}) {
     }
   return (
     <div>
-        <ul className='navLinks'>
+        <ul className='flex-col absolute left-0 top-20 w-full bg-slate-200'>
          {navItems.map((items)=>{
           return(
-            <li key ={items.id} onClick={()=>handleChange(items.id)}>
+            <li key ={items.id} onClick={()=>handleChange(items.id)} className=" hover:bg-sky-700 px-24 py-2 uppercase font-bold">
               <Link to ={items.destination}>{items.label}</Link>
             </li>
           )

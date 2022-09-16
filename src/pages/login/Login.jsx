@@ -78,13 +78,13 @@ function Login() {
   },[persist]);
 
   return (
-    <div className="login-style">
-    <section className='form-style'>
-      <img src={CairoLabLog} alt="" />
+    <div className="flex justify-center items-center bg-slate-100 min-h-screen">
+    <section className='w-full max-w-md flex flex-col grow bg-gray-200 p-6 m-4 shadow shadow-blue-500/40 md:shadow-indigo-500/40'>
+      <img src={CairoLabLog} alt="" className='w-[320px]' />
       <p ref={errRef} className={errMsg ? "errmsg" : "hide"}>{errMsg}</p>
       <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email" className='mt-2'>Email</label>
         <input 
         type="email"
         id ="email"
@@ -93,30 +93,34 @@ function Login() {
         onChange={(e)=> setEmail(e.target.value)}
         value ={email}
         required
+        className='text-lg p-1 rounded-lg'
          />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className='mt-2'>Password</label>
         <input 
         type="password"
         id ="password"
         onChange={(e)=> setPassword(e.target.value)}
         value ={password}
         required
+        className='text-lg p-1 rounded-lg'
          />
-         <button disabled ={!email ||!password? true : false}>Sign In</button>
-          <div className="rememberMeCheck">
+         <button disabled ={!email ||!password? true : false}
+         className ='text-lg p-1 rounded-lg my-2 border border-blue-300'>Sign In</button>
+          <div className="flex items-center mt-2">
             <input 
             type="checkbox"
             id="persist"
             onChange={togglePersist}
             checked ={persist}
+            className=' indeterminate:bg-gray-300 '
             />
-            <label htmlFor="persist">Stay logged In</label>
+            <label htmlFor="persist" className='m-0'>Stay logged In</label>
           </div>
       </form>
       <p>
         Need an Account? <br />
         <span>
-          <Link to ="/register">
+          <Link to ="/register" className='visited:text-purple-600'>
           Sign Up
           </Link>
         </span>

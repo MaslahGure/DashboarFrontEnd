@@ -30,7 +30,7 @@ function TimeSeriesGraph ({posts, device, timePeriod,range}) {
 
  
   let data =[]
-  timePeriod ==='Custom'?data=reversePosts.filter(post=>(new Date(post.tstamp).getTime()>=range[0]?.startDate.getTime() && new Date(post.tstamp).getTime()<=range[0]?.endDate.getTime()))
+  timePeriod ==='Custom'?data=reversePosts.filter(post=>(new Date(post.tstamp).getTime()>range[0]?.startDate.getTime() && new Date(post.tstamp).getTime()<range[0]?.endDate.getTime()))
                         :data=reversePosts.filter(post=>new Date(post.tstamp).getTime()>relativeTime);
   
   let time =[],

@@ -63,7 +63,7 @@ const About = () => {
   return (
     <section className="">
         <Navbar/>
-        <main className="flex-col mt-20 items-center">
+        <main className="flex-col mt-24 items-center">
             <h2>Users List</h2>
             {!manageCurrentUser && <Search users ={users} setSearchResult ={setSearchResult}/>}
             <Table 

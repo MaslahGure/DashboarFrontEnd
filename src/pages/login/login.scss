@@ -21,24 +21,14 @@ Link, Link:visited {
     color: #fff;
 }
 
-input[type="email"],
-input[type="password"],
-button,
-textarea {
-  font-family: 'Nunito', sans-serif;
-  font-size: 22px;
-  padding: 0.25rem;
-  border-radius: 0.5rem;
-}
-
-label,
+/* label,
 button {
   margin-top: 1rem;
 }
 
 button {
   padding: 0.5rem;
-}
+} */
 
 .instructions {
     font-size: 0.75rem;
@@ -84,10 +74,7 @@ button {
 .line {
     display: inline-block;
 }
-.rememberMeCheck label{
-    margin:0;
 
-}
 input[type ="checkbox"] {
     height :20px;
     width:20px;

@@ -119,18 +119,19 @@ function Register() {
 
     }
   return (
-    <div className='register-style'>
-    <section className='form-style'>
-    <img src={CairoLabLog} alt="" />
+    <div className='flex justify-center items-center bg-slate-100 min-h-screen'>
+    <section className='w-full max-w-md flex flex-col grow bg-gray-200 p-6 m-4 shadow shadow-blue-500/40 md:shadow-indigo-500/40'>
+    <img src={CairoLabLog} alt="" className='w-[320px]' />
       <p ref={errRef} className={errMsg ? "errmsg" : "hide"}>{errMsg}</p>
       <h1>Register</h1>
-      <form onSubmit={handleSubmit} >
-        <label htmlFor="username">
+      <form onSubmit={handleSubmit} 
+      className='flex flex-col justify-between'>
+        <label htmlFor="username" className='mt-2'>
           Full Name:
-          <span className={validName ? "valid": "hide"}>
+          <span className={validName ? "valid": "hidden"}>
             <FontAwesomeIcon icon ={faCheck}/>
           </span>
-          <span className={validName || !username?"hide":"invalid"}>
+          <span className={validName || !username?"hidden":"invalid"}>
             <FontAwesomeIcon icon ={faTimes}/>
           </span>
         </label>
@@ -144,19 +145,20 @@ function Register() {
            required
            onFocus={()=>setUserFocus(true)}
            onBlur ={()=> setUserFocus(false)}
+           className ='text-lg p-1 rounded-lg'
         />
-        <p className={userFocus && username && !validName?"instructions":"hide"}>
+        <p className={userFocus && username && !validName?"instructions":"hidden"}>
           <FontAwesomeIcon icon ={faInfoCircle}/>
           4 to 24 characters. <br/>
           Must begin with a letter. <br/>
           Letters, numbers, undrscores ,hyphens allowed
         </p>
-        <label htmlFor="Email">
+        <label htmlFor="Email" className='mt-2'>
           Email:
-          <span className={validEmail ? "valid": "hide"}>
+          <span className={validEmail ? "valid": "hidden"}>
             <FontAwesomeIcon icon ={faCheck}/>
           </span>
-          <span className={validEmail || !email?"hide":"invalid"}>
+          <span className={validEmail || !email?"hidden":"invalid"}>
             <FontAwesomeIcon icon ={faTimes}/>
           </span>
         </label>
@@ -168,8 +170,9 @@ function Register() {
            required
            onFocus={()=>setEmailFocus(true)}
            onBlur ={()=> setEmailFocus(false)}
+           className ='text-lg p-1 rounded-lg'
         />
-        <p className={emailFocus && email && !validEmail?"instructions":"hide"}>
+        <p className={emailFocus && email && !validEmail?"instructions":"hidden"}>
           <FontAwesomeIcon icon ={faInfoCircle}/>
           Only lowercase letters @<br/>
           Must begin with a letter. <br/>
@@ -178,12 +181,12 @@ function Register() {
         </p>
 
 
-        <label htmlFor="password">
+        <label htmlFor="password" className='mt-2'>
           password:
-          <span className={validPassword ? "valid": "hide"}>
+          <span className={validPassword ? "valid": "hidden"}>
             <FontAwesomeIcon icon ={faCheck}/>
           </span>
-          <span className={validPassword || !password?"hide":"invalid"}>
+          <span className={validPassword || !password?"hidden":"invalid"}>
             <FontAwesomeIcon icon ={faTimes}/>
           </span>
         </label>
@@ -195,19 +198,20 @@ function Register() {
            required
            onFocus={()=>setPwdFocus(true)}
            onBlur ={()=> setPwdFocus(false)}
+           className ='text-lg p-1 rounded-lg'
         />
-        <p className={pwdFocus && password && !validPassword?"instructions":"hide"}>
+        <p className={pwdFocus && password && !validPassword?"instructions":"hidden"}>
           <FontAwesomeIcon icon ={faInfoCircle}/>
           8 to 24 characters. <br/>
           Must include uppercase and lowercase letters, a number and a special character <br/>
           Allowed special characters: !@#$%
         </p>
-        <label htmlFor="confirm_password">
+        <label htmlFor="confirm_password" className='mt-2'>
           Confirm Password:
-          <span className={validMatch && matchPassword? "valid": "hide"}>
+          <span className={validMatch && matchPassword? "valid": "hidden"}>
             <FontAwesomeIcon icon ={faCheck}/>
           </span>
-          <span className={validMatch || !matchPassword?"hide":"invalid"}>
+          <span className={validMatch || !matchPassword?"hidden":"invalid"}>
             <FontAwesomeIcon icon ={faTimes}/>
           </span>
         </label>
@@ -218,17 +222,19 @@ function Register() {
            required
            onFocus={()=>setMatchFocus(true)}
            onBlur ={()=> setMatchFocus(false)}
+           className='text-lg p-1 rounded-lg'
         />
-        <p className={matchFocus &&!validMatch?"instructions":"hide"}>
+        <p className={matchFocus &&!validMatch?"instructions":"hidden"}>
           <FontAwesomeIcon icon ={faInfoCircle}/>
          Password does not match
         </p>
 
-        <button disabled ={!validName || !validEmail||!validPassword || !validMatch? true : false}>Sign Up</button>
+        <button disabled ={!validName || !validEmail||!validPassword || !validMatch? true : false}
+        className='text-lg p-1 rounded-lg mt-2 border border-blue-300'>Sign Up</button>
       </form>
       <p>
         Already register? <br/> 
-        <Link to ="/login">Login</Link>
+        <Link to ="/login" className='visited:text-purple-600'>Login</Link>
         
       </p>
       

@@ -11,6 +11,7 @@ import Footer from "../../components/footer/Footer";
 
 
 export const Home = () => {
+
   
   const axiosPrivate = useAxiosPrivate();
 
@@ -20,7 +21,8 @@ export const Home = () => {
   const [device,setDevice]=useState(1);
   const selectDevice = (x) => setDevice(x);
   const [requests, setRequests] =useState(false)
-
+  const [requestsInterval,setRequestsInterval]=useState("1000000");
+  const requestsIntervalSetter =(interval)=>setRequestsInterval(interval);
   const [posts, setPosts] = useState([{
     //default values set when server is not responding
     speed_a:0,
@@ -56,16 +58,16 @@ export const Home = () => {
 
      const interval = setInterval(() => {
         setRequests (!requests);
+        //console.log(`requested with: ${requestsInterval} `)
+      }, requestsInterval);
 
-      }, 1000000);
-
-          
+        
       return () => {
         isMounted =false;
         controller.abort();
         clearInterval(interval);
       }
-    } ,[axiosPrivate,requests])
+    } ,[axiosPrivate,requests,requestsInterval])
   
   return (
     <main >
@@ -78,7 +80,7 @@ export const Home = () => {
             <DropdownButton selectDevice ={selectDevice}/>
           </div>
               {
-                  page ===2 && <Details posts={posts} device ={device} />
+                  page ===2 && <Details posts={posts} device ={device} requestsIntervalSetter ={requestsIntervalSetter} />
                 }
                 {
                   page ===1 && <Health posts={posts} device={device}/> 
