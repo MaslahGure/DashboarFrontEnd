@@ -24,7 +24,6 @@ const storage = getStorage();
 
 export async function upload(file,userId,setLoading,setUserPhotoUrl,updateUserPhoto){
     const fileRef =ref(storage,userId +".png");
-
     await uploadBytes(fileRef,file);
     setLoading(false);
     const photoURL = await getDownloadURL(fileRef);

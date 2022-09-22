@@ -1,8 +1,7 @@
 import { useState,useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
-import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTimes, faInfoCircle, faDatabase, faMailBulk, faUser,faTableCells} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./userProfile.scss"
 import ProfilePic from "./ProfilePic";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
@@ -77,21 +76,26 @@ const UserProfile = () => {
 
 
   return (
-    <main className="profile-page">
+    <main>
         <Navbar/>
-        <div className="userProfile-style">
-        <ProfilePic/>
-        <form className="nameEmailCard" >
-            <label htmlFor="username">Name</label>
-            <input type ="text"readOnly value={auth?.username}/>
-            <label htmlFor="email">Email</label>
-            <input type ="text" readOnly value={auth?.email}/>
-        </form>
-        <button onClick={handleChangePassword}>Change password</button>
-        <p className={errMsg ? "errmsg" : "hide"}>{errMsg}</p>
-        <p className={successMsg ? "successmsg" : "hide"}>{successMsg}</p>
+        <div className="border shadow shadow-slate-600 mt-11 rounded-sm w-[300px] min-h-full">
+            <ProfilePic/>
+            <form className="p-4 mx-2" >
+                <label htmlFor="username" className="m-1 font-bold"><FontAwesomeIcon icon ={faUser}/> Name</label>
+                <input type ="text"readOnly value={auth?.username} className ="border rounded-md border-purple-200 p-2"/>
+                <label htmlFor="email" className="m-1 font-bold"><FontAwesomeIcon icon ={faMailBulk}/> Email</label>
+                <input type ="text" readOnly value={auth?.email} className ="border rounded-md border-purple-200 p-2"/>
+                <label htmlFor="database"className="m-1 font-bold"><FontAwesomeIcon icon ={faDatabase}/> Current Database</label>
+                <input type ="database" readOnly value={auth?.database} className ="border rounded-md border-purple-200 p-2"/>
+                <label htmlFor="tablename"className="m-1 font-bold"><FontAwesomeIcon icon ={faTableCells}/> Current Table</label>
+                <input type ="tablename" readOnly value={auth?.tablename} className ="border rounded-md border-purple-200 p-2"/>
+            </form>
+            <button onClick={handleChangePassword} className ="border rounded-lg p-2 mb-2 bg-gray-200 ml-6">Change password</button>
+            <p className={errMsg ? "errmsg" : "hide"}>{errMsg}</p>
+            <p className={successMsg ? "successmsg" : "hide"}>{successMsg}</p>
+        </div>
         {changePassword &&
-            <form className="nameEmailCard" onSubmit={handleSubmit}>
+            <form className="m-2 p-4 border rounded-md w-[300px]" onSubmit={handleSubmit}>
                 <label htmlFor="currentPassword">Current Password</label>
                 <input
                     type="password"
@@ -99,6 +103,7 @@ const UserProfile = () => {
                     onChange={(e)=> setCurrentPassword(e.target.value)}
                     value ={currentPassword}
                     required
+                    className="text-lg p-1 rounded-lg border"
                 />
                 <label htmlFor="newPassword">
                      New Password:
@@ -117,6 +122,7 @@ const UserProfile = () => {
                     required
                     onFocus={()=>setPwdFocus(true)}
                     onBlur ={()=> setPwdFocus(false)}
+                    className="text-lg p-1 rounded-lg border"
                 />
                 <p className={pwdFocus && newPassword && !validPassword?"instructions":"hide"}>
                     <FontAwesomeIcon icon ={faInfoCircle}/>
@@ -140,15 +146,15 @@ const UserProfile = () => {
                     required
                     onFocus={()=>setMatchFocus(true)}
                     onBlur ={()=> setMatchFocus(false)}
+                    className="text-lg p-1 rounded-lg border"
                  />
                  <p className={matchFocus &&!validMatch?"instructions":"hide"}>
                     <FontAwesomeIcon icon ={faInfoCircle}/>
                     Password does not match
                 </p>
-                <button disabled ={!validPassword || !validMatch? true : false}>Update Password</button>
+                <button disabled ={!validPassword || !validMatch? true : false} className= 'border rounded-lg my-2 p-2 bg-green-500'>Update Password</button>
             </form>
             }
-        </div>
         <Footer/>
     </main>
   )

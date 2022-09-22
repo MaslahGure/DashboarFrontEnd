@@ -18,15 +18,17 @@ function Navbar() {
     const [open, setOpen] = useState(false);
     const [profleMenu, setProfileMenu]= useState(false)
     const closedMenu = () => setOpen(false);
-    const userRole ="Client"
+    
+    const userRole =auth?.role ||"";
+    
 
 
     const handleClickProfile =()=>{
         setProfileMenu(!profleMenu)
     }
     useEffect (()=>{
-        if(auth?.photoUrl){
-            setUserPhotoUrl(auth.photoUrl)
+        if(auth?.photourl){
+            setUserPhotoUrl(auth.photourl)
         }
     },[auth])
     const handleLogoClick =()=>{
@@ -88,7 +90,7 @@ function Navbar() {
                 <FontAwesomeIcon icon={faBell} size ="xl" color='black'/>
                 <div className="flex flex-col">
                     <span className='Name'>{auth?.username}</span>
-                    <span className='Rank'>{userRole}</span>
+                    <span className='Rank'>{userRole ===9090?"Admin":"Client"}</span>
 
                 </div>
                 <div ref={refTwo}>
@@ -101,12 +103,15 @@ function Navbar() {
                                     <FontAwesomeIcon icon = {faArrowCircleRight} style={{paddingLeft:'0.5rem'}}/>
                                 </Link>
                             </li>
-                            <li className='p-2 hover:bg-sky-700'>
-                                <Link to = "/users" >
-                                    users
-                                    <FontAwesomeIcon icon = {faArrowCircleRight} style={{paddingLeft:'0.5rem'}}/>
-                                </Link>
-                            </li>
+                            {userRole=== 9090 &&
+                                <li className='p-2 hover:bg-sky-700'>
+                                    <Link to = "/users" >
+                                        users
+                                        <FontAwesomeIcon icon = {faArrowCircleRight} style={{paddingLeft:'0.5rem'}}/>
+                                    </Link>
+                                </li>
+                            }
+                            
                         </ul>}
                 </div>
                 

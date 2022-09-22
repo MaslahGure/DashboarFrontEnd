@@ -21,7 +21,7 @@ export const Home = () => {
   const [device,setDevice]=useState(1);
   const selectDevice = (x) => setDevice(x);
   const [requests, setRequests] =useState(false)
-  const [requestsInterval,setRequestsInterval]=useState("1000000");
+  const [requestsInterval,setRequestsInterval]=useState("1000");
   const requestsIntervalSetter =(interval)=>setRequestsInterval(interval);
   const [posts, setPosts] = useState([{
     //default values set when server is not responding

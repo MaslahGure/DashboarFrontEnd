@@ -13,10 +13,11 @@ const useRefreshToken = () => {
                 accessToken: response.data.accessToken,
                 username:response.data.username,
                 email:response.data.email,
-                userId:response.data.userId,
-                photoUrl: response.data.photoUrl,
+                userId:response.data.id,
+                photourl: response.data.photourl,
                 database: response.data.database,
                 tablename: response.data.tablename,
+                role: response.data.role,
                 }
 
         });

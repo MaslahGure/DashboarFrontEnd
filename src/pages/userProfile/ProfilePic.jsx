@@ -51,24 +51,27 @@ const ProfilePic = () => {
         }
     }
     useEffect (()=>{
-        if(auth?.photoUrl){
-            setUserPhotoUrl(auth.photoUrl)
+        if(auth?.photourl){
+            setUserPhotoUrl(auth.photourl)
         }
     },[auth])
   return (
-    <div className="userProfilePic nameEmailCard">
+    <div className="p-2">
         <p className={errMsg ? "errmsg" : "hide"}>{errMsg}</p>
         <p className={successMsg ? "successmsg" : "hide"}>{successMsg}</p>
-            <img src={userPhotoUrl} alt="" className="userAvatar"
+            <img src={userPhotoUrl} alt="" className="w-[200px] h-[200px] rounded-full"
             onClick ={handlePicToggle} />
             {picToggle &&
-                <div className="uploadPhoto">
+                <div className="p-2">
                 <input
                     type ="file"
                     onChange={handleChange}
+                    accept ="image/*"
+                    className ="mt-2 border rounded-lg text-sm"
                 />
                 <button disabled ={!image || loading} 
                 onClick ={handleClick}
+                className =" my-1 p-1 border rounded-lg border-slate-300"
                 >Update Photo</button>
             </div>
             
