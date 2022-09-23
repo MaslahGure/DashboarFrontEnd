@@ -1,11 +1,13 @@
 import { useState ,useEffect,useRef} from 'react'
 import useAuth from "../../hooks/useAuth"
+import useLogout from "../../hooks/useLogout";
+
 
 import "./navbar.scss"
 import Logo from "../../img/CarioLog.png"
 import Navlinks from './navlinks/Navlinks'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBell,faArrowCircleRight,faBars} from "@fortawesome/free-solid-svg-icons";
+import { faBell,faBars,faSignOut, faUsers,faUser} from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from 'react-router-dom';
 import userDefaultProfile from '../../img/defaultProfilePic.jpg';
 
@@ -20,6 +22,16 @@ function Navbar() {
     const closedMenu = () => setOpen(false);
     
     const userRole =auth?.role ||"";
+
+    //Logging out
+    const logout = useLogout();
+    const signOut = async () => {
+        await logout();
+        navigate('/login');
+    }
+    const handleOnClickLogout =()=>{
+        signOut();
+      }
     
 
 
@@ -45,7 +57,6 @@ function Navbar() {
       }, [])
         // hide dropdown on ESC press
   const hideOnEscape = (e) => {
-    // console.log(e.key)
     if( e.key === "Escape" ) {
       setOpen(false)
       setProfileMenu(false)
@@ -54,8 +65,6 @@ function Navbar() {
 
   // Hide dropdown on outside click
   const hideOnClickOutside = (e) => {
-    // console.log(refOne.current)
-    // console.log(e.target)
     if( refOne.current && !refOne.current.contains(e.target) ) {
       setOpen(false)
       
@@ -100,14 +109,22 @@ function Navbar() {
                             <li className='p-2 hover:bg-sky-700'>
                                 <Link to = "/profile" >
                                     Profile
-                                    <FontAwesomeIcon icon = {faArrowCircleRight} style={{paddingLeft:'0.5rem'}}/>
+                                    <FontAwesomeIcon icon = {faUser} style={{paddingLeft:'0.5rem'}}/>
                                 </Link>
                             </li>
+                            <li className='p-2 hover:bg-sky-700'
+                            onClick={()=>handleOnClickLogout()}>
+                                <Link to = "/profile" >
+                                    Logout
+                                    <FontAwesomeIcon icon = {faSignOut} style={{paddingLeft:'0.5rem'}}/>
+                                </Link>
+                            </li>
+                            <hr className ="border-black" />
                             {userRole=== 9090 &&
                                 <li className='p-2 hover:bg-sky-700'>
                                     <Link to = "/users" >
                                         users
-                                        <FontAwesomeIcon icon = {faArrowCircleRight} style={{paddingLeft:'0.5rem'}}/>
+                                        <FontAwesomeIcon icon = {faUsers} style={{paddingLeft:'0.5rem'}}/>
                                     </Link>
                                 </li>
                             }

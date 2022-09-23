@@ -30,7 +30,7 @@ export default function Details({posts,device,requestsIntervalSetter}) {
       {
         device === 1
         ? <Amr device={1} posts ={posts} requestsIntervalSetter={requestsIntervalSetter}/>
-        :<Amr device={2} posts ={posts} requestsIntervalSetter={requestsIntervalSetter}/>
+        :<Amr device={2} posts ={posts} requestsIntervalSetter={requestsIntervalSetter} />
       }
       
     </section>

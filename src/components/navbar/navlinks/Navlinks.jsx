@@ -1,10 +1,7 @@
-import { useNavigate, Link } from "react-router-dom";
-import useLogout from "../../../hooks/useLogout";
-
+import { Link } from "react-router-dom";
 
 export default function Navlinks({closedMenu}) {
-  const navigate = useNavigate();
-    const logout = useLogout();
+   
     const navItems=([
       {
         id:1,
@@ -12,30 +9,15 @@ export default function Navlinks({closedMenu}) {
         destination:"/"
       },
       {
-        id:2,
-        label: "Profile",
-        destination:"/profile"
-      },
-      {
         id:3,
         label: "About",
         destination:"/about"
       },
-      {
-        id:4,
-        label: "Logout",
-        destination:"#"
-      }
+      
     ])
-    const handleChange =(id)=>{
-      if(id===4) signOut();
+    const handleChange =()=>{
       closedMenu();
 
-    }
-
-    const signOut = async () => {
-        await logout();
-        navigate('/login');
     }
   return (
     <div>

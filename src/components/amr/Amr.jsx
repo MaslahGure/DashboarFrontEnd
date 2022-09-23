@@ -1,7 +1,7 @@
 import AmrSettings  from './AmrSettings'
 import TimeSeriesGraph from './TimeseriesGraph'
 import "./amr.scss"
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import { addDays } from 'date-fns'
 
 export default function Amr({device, posts,requestsIntervalSetter}) {
@@ -13,16 +13,17 @@ export default function Amr({device, posts,requestsIntervalSetter}) {
       key: 'selection'
     }
   ]);
-  const rangeSetter = (x)=>setRange(x)
-  const periodSetter =(x)=> {
-    setTimePeriod(x);
-    if(x==="Last minute"){
-      requestsIntervalSetter(1000) // if last minute request data every second
-
-    }else{
-      requestsIntervalSetter(100000)// else every minute
+  const rangeSetter = (x)=>{
+      setRange(x);
+      //requestsIntervalSetter(timePeriod,x)
     }
+  const periodSetter =(interval)=> {
+    setTimePeriod(interval);
+    //requestsIntervalSetter(interval,range)   
   }
+  useEffect (()=>{
+    requestsIntervalSetter(timePeriod,range)   
+  },[range,timePeriod,requestsIntervalSetter])
   return (
     <section className='amr' >
       <AmrSettings periodSetter={periodSetter} timePeriod={timePeriod} range={range} rangeSetter ={rangeSetter}/>

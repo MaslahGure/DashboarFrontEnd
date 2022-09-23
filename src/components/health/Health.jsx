@@ -26,7 +26,7 @@ export default function Health({device,posts}) {
           </div>
         <div className="conveyor-detail-performance">
           {device===1
-          ?posts.slice(0,1).map((post,index)=>{
+          ?posts?.slice(0,1).map((post,index)=>{
             return(
               <ul key ={index}>
                 <li> frequency_a <span className='convElement'>{`${post.frequency_a} Hz`}</span></li>
@@ -36,7 +36,7 @@ export default function Health({device,posts}) {
             </ul>
             )
           })
-          :posts.slice(0,1).map((post,index)=>{
+          :posts?.slice(0,1).map((post,index)=>{
             return(
               <ul key ={index}>
                 <li> frequency_b <span className='convElement'>{`${post.frequency_b} Hz`}</span></li>

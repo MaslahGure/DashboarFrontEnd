@@ -7,7 +7,7 @@ import Health from "../../components/health/Health";
 import Details from "../../components/details/Details";
 import DropdownButton from "../../components/selection/DropdownButton";
 import Footer from "../../components/footer/Footer";
-
+import {fetchConveyorData} from './QueryTimeInterval'
 
 
 export const Home = () => {
@@ -21,8 +21,14 @@ export const Home = () => {
   const [device,setDevice]=useState(1);
   const selectDevice = (x) => setDevice(x);
   const [requests, setRequests] =useState(false)
-  const [requestsInterval,setRequestsInterval]=useState("1000");
-  const requestsIntervalSetter =(interval)=>setRequestsInterval(interval);
+  const [requestsInterval,setRequestsInterval]=useState("Last minute");
+  const [range, setRange] = useState([])
+  const requestsIntervalSetter =(interval,range)=>
+          {
+            setRange(range)
+            setRequestsInterval(interval);
+            
+          }
   const [posts, setPosts] = useState([{
     //default values set when server is not responding
     speed_a:0,
@@ -33,41 +39,25 @@ export const Home = () => {
     motor_thermal_b:0,
     drive_thermal_a:0,
     drive_thermal_b:0,
-    tstamp:0,
+    tstamp:new Date(),
 
   }]);
   
   //Api call, server data 
   useEffect (() =>{
-    let isMounted =true;
-    const controller =new AbortController();
-     const getConvData = async()=>{
 
-      try {
-        const response = await axiosPrivate.get('/convdata', {
-          signal: controller.signal
-      });
-      //console.log(response.data)
-        isMounted && setPosts(response.data);
-      } catch (error) {
-       
-      }
-    }
-
-     getConvData();
-
+    fetchConveyorData(axiosPrivate,requestsInterval,range,setPosts);
      const interval = setInterval(() => {
+      
         setRequests (!requests);
-        //console.log(`requested with: ${requestsInterval} `)
-      }, requestsInterval);
+       // console.log(`requested with: ${requestsInterval} `)
+      },requestsInterval==="Last minute"?10000:100000);
 
         
       return () => {
-        isMounted =false;
-        controller.abort();
         clearInterval(interval);
       }
-    } ,[axiosPrivate,requests,requestsInterval])
+    } ,[axiosPrivate,requestsInterval,range,requests])
   
   return (
     <main >

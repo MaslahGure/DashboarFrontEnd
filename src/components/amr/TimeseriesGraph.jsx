@@ -4,35 +4,8 @@ import LineChart from './LineChart';
 
 function TimeSeriesGraph ({posts, device, timePeriod,range}) {
   
-  //data pre-processing
-  const reversePosts = [...posts].reverse(); // data reversed
-  const currentTime = new Date();
-  //time period selection
-  let relativeTime =0;
-  if(timePeriod === 'Last minute'){
-    relativeTime =currentTime.setMinutes(currentTime.getMinutes()-1)
-  }
-  else if(timePeriod ==='Last hour'){
-    relativeTime =currentTime.setHours(currentTime.getHours()-1)
-  }
-  else if(timePeriod==='Last 3 hours'){
-    relativeTime =currentTime.setHours(currentTime.getHours()-3) 
-  }
-  else if(timePeriod==='Last day'){
-    relativeTime =currentTime.setHours(currentTime.getHours()-24)
-  }
-  else if(timePeriod==='Custom'){
-    relativeTime =currentTime.setMinutes(currentTime.getMinutes()-1)
-  }
-  else{
-    relativeTime =currentTime.setMinutes(currentTime.getMinutes()-1)
-  }
-
- 
-  let data =[]
-  timePeriod ==='Custom'?data=reversePosts.filter(post=>(new Date(post.tstamp).getTime()>range[0]?.startDate.getTime() && new Date(post.tstamp).getTime()<range[0]?.endDate.getTime()))
-                        :data=reversePosts.filter(post=>new Date(post.tstamp).getTime()>relativeTime);
-  
+  let data =[];
+  posts.length>2?data =posts: data=[]
   let time =[],
   tempMotorA =[],tempMotorB =[],
   driveThermalA =[],driveThermalB =[],
@@ -47,8 +20,6 @@ function TimeSeriesGraph ({posts, device, timePeriod,range}) {
     currentB.push(data[i]?.current_b)
  
   }
-    //console.log(time[1],currentA[0],currentB[1],tempMotorA[1],tempMotorB[1])
-   // const posts = posts;
   const dataLine1={
     labels:time, // x-axis
       datasets:[
@@ -118,9 +89,9 @@ function TimeSeriesGraph ({posts, device, timePeriod,range}) {
  
     return (
     <section className='timeSeriesGraph'>
-          <LineChart lineData = {dataLine1} className="lineChart"/>
-          <LineChart lineData = {dataLine2} className="lineChart"/>
-          <LineChart lineData = {dataLine3} className="lineChart"/>
+          <LineChart lineData = {dataLine1} timePeriod={timePeriod} className="lineChart"/>
+          <LineChart lineData = {dataLine2} timePeriod={timePeriod} className="lineChart"/>
+          <LineChart lineData = {dataLine3} timePeriod={timePeriod} className="lineChart"/>
     </section>
   )
 }
