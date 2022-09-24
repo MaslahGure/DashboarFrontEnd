@@ -3,7 +3,6 @@ import useAuth from "../../hooks/useAuth"
 import useLogout from "../../hooks/useLogout";
 
 
-import "./navbar.scss"
 import Logo from "../../img/CarioLog.png"
 import Navlinks from './navlinks/Navlinks'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -76,8 +75,8 @@ function Navbar() {
 
 
   return (
-    <header className='fixed top-0 w-full flex items-center p-11 h-12 border-b-2 border-sky-400 bg-zinc-50'>
-        <div className="flex justify-between w-full p-4">
+    <header className='sticky top-0 z-10  border-b-2 border-sky-400 bg-zinc-50'>
+        <div className="flex justify-between max-w-full p-4">
             <div className='flex items-center'>
                 <div className='p-3'>
                 <img src={Logo} alt="" 

@@ -47,8 +47,8 @@ export const Home = () => {
   useEffect (() =>{
 
     fetchConveyorData(axiosPrivate,requestsInterval,range,setPosts);
-     const interval = setInterval(() => {
-      
+    
+    const interval = setInterval(() => { 
         setRequests (!requests);
        // console.log(`requested with: ${requestsInterval} `)
       },requestsInterval==="Last minute"?10000:100000);
@@ -62,9 +62,9 @@ export const Home = () => {
   return (
     <main >
         <Navbar/>
-        <div className="home-page">
-          <h3 className="title">Condition summary</h3>
-          <div className="options">
+        <div className="max-w-full p-4">
+          <h3 className="font-bold p-1">Condition summary</h3>
+          <div className="flex bg-orange-100">
             <Selection selectedBox ={selectedBox}/>
       
             <DropdownButton selectDevice ={selectDevice}/>

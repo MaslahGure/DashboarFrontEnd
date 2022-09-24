@@ -78,7 +78,7 @@ const UserProfile = () => {
   return (
     <main>
         <Navbar/>
-        <div className="border shadow shadow-slate-600 mt-11 rounded-sm w-[300px] min-h-full">
+        <div className="border shadow shadow-slate-600 rounded-sm w-[300px] min-h-full">
             <ProfilePic/>
             <form className="p-4 mx-2" >
                 <label htmlFor="username" className="m-1 font-bold"><FontAwesomeIcon icon ={faUser}/> Name</label>

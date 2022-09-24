@@ -20,15 +20,9 @@
     -moz-osx-font-smoothing: grayscale;
     
   }
-  main{
-      display: flex;
-      flex-direction: column;
-      margin: 50px 0rem;
-     
-      
-  }
 
-  footer {
+
+  /* footer {
     position:fixed;
     bottom: 0;
     width: 100%;
@@ -39,7 +33,7 @@
     display: grid;
     place-content: center;
   
-  }
+  } */
   .app{
     margin:0;
   }

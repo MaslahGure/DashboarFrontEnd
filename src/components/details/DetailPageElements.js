@@ -6,7 +6,7 @@ import  {FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const EachConvHealth = ({mileage,speed,current,motor_temp,inverter_temp,device}) => {
 
     return (
-    <section className='detail-elements-bars'>
+    <section className='detail-elements-bars m-2'>
       <div className="health-title">
           <FontAwesomeIcon icon={faBoxesPacking}/>
           <h5>General/whitey_conv{device}</h5>

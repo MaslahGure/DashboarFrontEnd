@@ -31,8 +31,10 @@ function TimeSeriesGraph ({posts, device, timePeriod,range}) {
                 device ===1
                 ?tempMotorA
                 :tempMotorB, // y-axis
-              backgroundColor:["rgba(75,192,11)"]
+              backgroundColor:["rgba(75,192,11)"],
+              
             }
+            
       ],
       
   };
@@ -89,9 +91,9 @@ function TimeSeriesGraph ({posts, device, timePeriod,range}) {
  
     return (
     <section className='timeSeriesGraph'>
-          <LineChart lineData = {dataLine1} timePeriod={timePeriod} className="lineChart"/>
-          <LineChart lineData = {dataLine2} timePeriod={timePeriod} className="lineChart"/>
-          <LineChart lineData = {dataLine3} timePeriod={timePeriod} className="lineChart"/>
+          <LineChart lineData = {dataLine1} timePeriod={timePeriod} time ={time} className="lineChart"/>
+          <LineChart lineData = {dataLine2} timePeriod={timePeriod} time ={time} className="lineChart"/>
+          <LineChart lineData = {dataLine3} timePeriod={timePeriod} time ={time} className="lineChart"/>
     </section>
   )
 }

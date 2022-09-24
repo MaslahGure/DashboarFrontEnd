@@ -7,7 +7,7 @@ export default function Details({posts,device,requestsIntervalSetter}) {
   let post = posts[0];
   
   return (
-    <section className='page-display page-detail'>
+    <section className='flex lg:flex-row sm:flex-col justify-evenly page-detail mt-1'>
       { device===1
         ? 
         <DetailPageElements 

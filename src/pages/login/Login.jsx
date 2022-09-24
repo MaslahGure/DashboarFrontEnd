@@ -46,8 +46,8 @@ function Login() {
       }
 
     );
-     const accessToken =response?.data;
-     setAuth({email,password,accessToken});    
+     const {accessToken,username,id,photourl,database,tablename,role} =response?.data;
+     setAuth({accessToken,username,email,id,photourl,database,tablename,role});    
       setEmail ("");
       setPassword("");
       //setSuccess(true); // remove when Launching

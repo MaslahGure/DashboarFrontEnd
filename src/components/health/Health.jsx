@@ -8,14 +8,14 @@ export default function Health({device,posts}) {
  const failure= "None"
 
   return (
-    <section className="page-display">
-      <div className="conveyor-image">
+    <section className="flex lg:flex-row sm:flex-col justify-evenly mt-2">
+      <div className="shadow shadow-pink-400 m-2 flex-1 flex justify-center">
        <img src={convImage} alt="" />
       </div>
-      <div className="conveyor-parts-image">
-        <img src={Oil} alt="" className='oil' />
+      <div className="shadow shadow-pink-400 m-2 flex-1 flex justify-center">
+        <img src={Oil} alt="" className='align-center' />
       </div>
-      <div className="performance-health">
+      <div className=" shadow shadow-pink-400 m-2 flex-1">
         <div className="health-of-conveyor">
           <p>Health</p>
           <ProgressBar 
